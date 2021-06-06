@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Note from "./Note";
+import AddIcon from "@material-ui/icons/Add";
 const InputNote = (props) => {
   const [note, setNote] = useState({
     title: "",
@@ -9,6 +10,7 @@ const InputNote = (props) => {
   const noteHandler = (event) => {
     let input = event.target.value;
     let name = event.target.name;
+
     if (name === "title") {
       setNote((prevValue) => {
         return { title: input, detail: prevValue.detail };
@@ -20,13 +22,15 @@ const InputNote = (props) => {
     }
   };
   const addNote = () => {
-    setAllNote((prevValue) => {
-      return [...prevValue, note];
-    });
-    setNote({
-      title: "",
-      detail: "",
-    });
+    if (note.title && note.detail) {
+      setAllNote((prevValue) => {
+        return [...prevValue, note];
+      });
+      setNote({
+        title: "",
+        detail: "",
+      });
+    }
   };
 
   const deleteNote = (index) => {
@@ -41,6 +45,7 @@ const InputNote = (props) => {
       <>
         <div className="inputContainer">
           <input
+            autoComplete="off"
             name="title"
             type="text"
             placeholder="Title"
@@ -48,6 +53,7 @@ const InputNote = (props) => {
             value={note.title}
           />
           <input
+            autoComplete="off"
             name="detail"
             type="text"
             placeholder="Take A Note"
@@ -55,7 +61,7 @@ const InputNote = (props) => {
             value={note.detail}
           />
           <button className="addBtn" onClick={addNote}>
-            Add
+            <AddIcon />
           </button>
         </div>
       </>

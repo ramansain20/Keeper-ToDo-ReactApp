@@ -1,3 +1,6 @@
+body {
+  background-image: url(http://www.transparenttextures.com/patterns/cubes.png);
+}
 * {
   margin: 0;
   padding: 0;
@@ -27,17 +30,32 @@
 .addBtn {
   font-family: "McLaren";
   background-color: #f5ba13;
+  color: white;
   width: 50%;
-  height: 4em;
+  justify-self: center;
   border-radius: 1.5rem;
   border: 0;
+  padding: 0.5em;
+}
+.addBtn:hover {
+  background-color: white;
+  color: #f5ba13;
+  box-shadow: 0 0 0.5em #f5ba13;
+  transition: all 500ms;
 }
 .deleteBtn {
   font-family: "McLaren";
   color: #f5ba13;
+  font-size: xx-large;
   align-self: end;
   border: 0;
-  margin-top: 0.2em;
+  margin-top: 0.5em;
+  background-color: white;
+}
+.deleteBtn :hover {
+  color: white;
+  background-color: #f5ba13;
+  transition: all 500ms;
 }
 input {
   width: 70%;
